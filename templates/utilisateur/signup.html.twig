@@ -1,0 +1,288 @@
+ <head>   <title>Signup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css')}}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/logo.css')}}">
+<!--===============================================================================================-->
+</head>
+
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+                {{ form_start(form,{'attr' : {'class' : 'login100-form','novalidate' : 'novalidate'}}) }}
+					<span class="login100-form-title p-b-43">
+						Inscription
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" >
+						{{ form_widget(form.nom,{'attr':{class:'input100'}}) }}
+						
+						<span class="focus-input100"></span>
+						<span class="label-input100">nom</span>
+						
+						 
+					</div><br>
+					
+					<div class='text-danger'>{{ form_errors(form.nom,{'attr':{class:'text-danger'}}) }}</div>
+					
+					<br>
+                    <div class="wrap-input100 validate-input" >
+						{{ form_widget(form.prenom,{'attr':{class:'input100'}}) }}
+						
+						<span class="focus-input100"></span>
+						<span class="label-input100">prénom</span>
+						
+						
+					</div><br>
+					<div class='text-danger'>{{ form_errors(form.prenom) }}</div>
+					<br>
+                    <div class="wrap-input100 validate-input">
+						{{ form_widget(form.login,{'attr':{class:'input100'}}) }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+						
+					</div><br>
+					<div class='text-danger'>{{ form_errors(form.login) }}
+					{{message}}</div>
+
+<br>
+                    <div class="wrap-input100 validate-input">
+						{{ form_widget(form.mdp,{'attr':{class:'input100'}}) }}
+						
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+						
+						
+					</div><br>
+					<div class="form-group">
+    {{ form_widget(form.showPassword, { 'attr': {'class': 'form-check-input'} }) }}
+    {{ form_label(form.showPassword, "Afficher mot de passe", {'label_attr': {'class': 'form-check-label'}}) }}
+</div><br>
+
+					
+					<div class='text-danger'>{{ form_errors(form.mdp) }}</div><br>
+
+						<!-- accordion style 3 start -->
+                    
+                                            <a class="card-link" data-toggle="collapse" id="my-button" href="#accordion31">Suggestion de mot de passe</a>
+                                       
+                                        <div id="accordion31" class="collapse" data-parent="#accordion3">
+                                            <div class="card-body">
+
+
+                                            <div class="form-row align-items-center">
+												  <div class="wrap-input100 validate-input" >
+						{{ form_widget(form.generatedPass,{'attr':{class:'input100'}}) }}    
+						<span class="focus-input100"></span> 
+						<span class="label-input100">Example</span>
+
+						</div>                                        
+                                   <br>
+					<div class="form-group">
+    {{ form_widget(form.showGeneratedPassword, { 'attr': {'class': 'form-check-input'} }) }}
+    {{ form_label(form.showGeneratedPassword, "Afficher mot de passe généré", {'label_attr': {'class': 'form-check-label'}}) }}
+</div><br>     
+                                        </div>
+					</div></div><br>
+                    <div class="wrap-input100 validate-input" >
+						{{ form_widget(form.cin,{'attr':{class:'input100'}}) }}
+						
+						<span class="focus-input100"></span>
+						<span class="label-input100">cin</span>
+						<br>
+						
+					</div><br>
+					<div class='text-danger'>{{ form_errors(form.cin) }}
+					{{message1}}</div><br>
+                    <div class="wrap-input100 validate-input" >
+						{{ form_widget(form.identifiant,{'attr':{class:'input100'}}) }}
+						
+						<span class="focus-input100"></span>
+						<span class="label-input100">identifiant</span>
+						<br>
+						
+					</div><br>
+					<div class='text-danger'>{{ form_errors(form.identifiant) }}
+					{{message2}}</div><br>
+                    <div class="wrap-input100 validate-input" >
+						{{ form_widget(form.num_tel,{'attr':{class:'input100'}}) }}
+						
+						<span class="focus-input100"></span>
+						<span class="label-input100">numéro de téléphone</span>
+						<br>
+						
+					</div><br>
+					<div class='text-danger'>{{ form_errors(form.num_tel) }}</div><br>
+                    <div class="wrap-input100 validate-input">
+						{{ form_widget(form.date_naiss,{'attr':{class:'input100'}}) }}
+						<span class="focus-input100"></span>
+						
+					</div>
+					<br>
+					<div class='text-danger'>{{ form_errors(form.date_naiss)}}</div><br>
+					
+                     <div class="wrap-input100 validate-input">
+						{{ form_widget(form.ville,{'attr':{class:'input100'}}) }}
+						<span class="focus-input100"></span>
+						<span class="label-input100">ville</span>
+					</div>
+                    
+					
+					
+					
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+			
+	<div class="container-login100-form-btn">
+	{{ form_label(form.photo_personel,'photo personnel') }}
+					<button class="login100-form-btn">
+							{{ form_widget(form.photo_personel,{'attr':{class:'login100-form-btn'}}) }}
+							
+						</button>
+						<br>
+						<div class='text-danger'>{{ form_errors(form.photo_personel) }}</div>
+                        
+					</div><br>
+                    <div class="container-login100-form-btn">
+					{{ form_label(form.carte_etudiant,'carte étudiant') }}
+						<button class="login100-form-btn">
+							{{ form_widget(form.carte_etudiant,{'attr':{class:'login100-form-btn'}}) }} 
+							                 
+						</button>
+					<br>
+						<div class='text-danger'>{{ form_errors(form.carte_etudiant) }}</div>
+					</div><br>
+					<div class="container-login100-form-btn">
+						
+							{{ form_widget(form.submit,{'attr':{class:'login100-form-btn'}}) }}
+                           
+						
+					</div><br>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							<a href='{{path('loginspace')}}'>Déja un compte?</a>
+						</span>
+					</div>
+
+					<!--<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>-->
+                    {{ form_end(form) }}
+                
+
+				<div class="login100-more" style="background-image: url('images/bg-01.jpg');">
+<!--<div class ="logobody">
+				<div class="levitate-body">
+  <div class="levitate">
+    <div class="logo">
+      <i class="h">bienvenu chez SwiftRide</i>
+    </div>
+  </div>
+</div>
+</div>-->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{ asset('vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+<script>
+    const passwordInput = document.querySelector('#{{ form.mdp.vars.id }}');
+    const showPasswordCheckbox = document.querySelector('#{{ form.showPassword.vars.id }}');
+
+    showPasswordCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
+        }
+    });
+</script>
+<script>
+    const passwordInput1 = document.querySelector('#{{ form.generatedPass.vars.id }}');
+    const showPasswordCheckbox1 = document.querySelector('#{{ form.showGeneratedPassword.vars.id }}');
+
+    showPasswordCheckbox1.addEventListener('change', function() {
+        if (this.checked) {
+            passwordInput1.type = 'text';
+        } else {
+            passwordInput1.type = 'password';
+        }
+    });
+</script>
+<script>
+    const generPass = document.querySelector('#{{ form.generatedPass.vars.id }}');
+    const button = document.querySelector('#my-button');
+    const email = document.querySelector('#{{ form.login.vars.id }}');
+
+    button.addEventListener('click', () => {
+        const parts = email.value.split('@');
+        const emailPart = parts[0];
+        const password = crypto.getRandomValues(new Uint8Array(2)).toString().replace(/,/g, '');
+
+        generPass.value =  emailPart + password ;
+    });
+</script>
+	<script src="{{ asset('js/main.js')}}"></script>

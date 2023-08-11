@@ -1,0 +1,80 @@
+/*.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }*/
+  .parent {
+    background-color: gray;
+  }
+  
+.child {
+    background: rgb(221, 194, 145);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+  }
+  body {
+    background-color: rgb(35, 34, 34);
+  }
+.button_center{
+    left: 70%;
+}
+img {
+    height: 250px;
+    width: 250px;
+    position: fixed;
+    top: 50%;
+    left: 42%;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50%;
+  }
+  .levitate-body:after {
+    margin: 10px 0 0 0;
+    color: #a0c2ce;
+    -webkit-filter: blur(2px);
+  }
+  
+  .logo {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-color: #a0c2ce;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .levitate i {
+    color: #fff;
+    font: 700 50px Tahoma;
+    text-shadow: 0px 0px #819da6, 1px 1px #819da6, 2px 2px #819da6, 3px 3px #819da6, 4px 4px #819da6, 5px 5px #819da6, 6px 6px #819da6, 7px 7px #819da6, 8px 8px #819da6, 9px 9px #819da6, 10px 10px #819da6, 11px 11px #819da6, 12px 12px #819da6, 13px 13px #819da6, 14px 14px #819da6, 15px 15px #819da6, 16px 16px #819da6, 17px 17px #819da6, 18px 18px #819da6, 19px 19px #819da6, 20px 20px #819da6, 21px 21px #819da6, 22px 22px #819da6, 23px 23px #819da6, 24px 24px #819da6, 25px 25px #819da6, 26px 26px #819da6, 27px 27px #819da6, 28px 28px #819da6;
+  }
+  
+  .levitate {
+    -webkit-animation-name: levitate;
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out ease-in-out;
+  }
+  
+  @-webkit-keyframes levitate {
+    from {
+      -webkit-transform: translate(0, 0px);
+    }
+    45% {
+      -webkit-transform: translate(0, 20px);
+    }
+    to {
+      -webkit-transform: translate(0, -0px);
+    }
+  }
