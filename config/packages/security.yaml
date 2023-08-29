@@ -40,7 +40,7 @@ security:
                 # "app_login" is the name of the route created previously
                 login_path: loginspace
                 check_path: loginspace
-                default_target_path: profile_page
+                default_target_path: accueil
                 enable_csrf: true
             remember_me:
                 secret:   '%kernel.secret%' # required

@@ -1,7 +1,6 @@
 
 <!doctype html>
 
-{% block header %}
 <html lang="en">
   <head>
     <title>Esprit-Op &mdash; "Connectez Votre Avenir : Découvrez, Postulez, Réussissez !"</title>
@@ -24,11 +23,7 @@
     <link rel="stylesheet" href="css/style.css">    
   </head>
 
- {% endblock %}
-
-
-
- {% block body %}
+ 
 
 
   <body id="top">
@@ -61,14 +56,13 @@
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-              <li><a href="{{path('accueil')}}" class="nav-link active">Accueil</a></li>
+              <li><a href="index.html" class="nav-link active">Accueil</a></li>
               <li><a href="about.html">A propos</a></li>
 
               <li><a href="{{path('front_index')}}">Les Offres</a></li>
               <li><a href="{{path('app_events_index')}}">Events</a></li>
               <li><a href="contact.html">Contact</a></li>
-              <li class="d-lg-none"><a href="profilsymfony server:start 
-              .html.twig">Mon profil</a></li>
+              <li class="d-lg-none"><a href="{{path('profile_page')}}">Mon profil</a></li>
               <li class="d-lg-none"><a href="login.html">Se deconnecter</a></li>
             </ul>
           </nav> 
@@ -96,9 +90,6 @@
 
       <div class="container">
         <div class="row align-items-center justify-content-center">
-{% block content1 %}
-
-{% endblock %}
 
           <div class="col-md-12">
          
@@ -571,11 +562,5 @@
 
      
   </body>
-
-  {% endblock %}
-{% block content2 %}
-
-{% endblock %}
-
 
 </html>

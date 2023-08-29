@@ -1,0 +1,58 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}new Offre {% endblock %}
+
+    {% block content %}
+        <ul id="sidebarnav">
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Accueil</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('accueil')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-layout-dashboard"></i>
+              </span>
+              <span class="hide-menu">accueil</span>
+            </a>
+          </li>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu"> Tables</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_offre_index')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-article"></i>
+              </span>
+              <span class="hide-menu">Offres</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_events_dash')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-alert-circle"></i>
+              </span>
+              <span class="hide-menu">Events</span>
+            </a>
+          </li>
+        {% endblock %}
+
+
+
+
+{% block body %}
+    <h1 style="margin-left: 420px; margin-bottom: 50px;" >ajouter un Offre</h1>
+    <br>
+
+    {{ include('offre/_form.html.twig') }}
+
+    <br>
+
+    <br>
+
+    <br>
+    <br>
+
+    <a href="{{ path('app_offre_index') }}">back to list</a>
+{% endblock %}

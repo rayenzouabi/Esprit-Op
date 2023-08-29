@@ -1,0 +1,105 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Offre {% endblock %}
+
+    {% block content %}
+        <ul id="sidebarnav">
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Accueil</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('accueil')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-layout-dashboard"></i>
+              </span>
+              <span class="hide-menu">accueil</span>
+            </a>
+          </li>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu"> Tables</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_offre_index')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-article"></i>
+              </span>
+              <span class="hide-menu">Offres</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_events_dash')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-alert-circle"></i>
+              </span>
+              <span class="hide-menu">Events</span>
+            </a>
+          </li>
+        {% endblock %}
+
+
+
+{% block body %}
+    <h1 style="margin-bottom: 15px; margin-left: 340px;">Liste des Offres </h1>
+    <br>
+        <br><br>
+        <br>
+
+
+        <div class="form-container">
+  
+        <button type="button" class="btn btn-outline-primary">
+            <a href="{{ path('app_offre_new') }}" style="color: primary;">ajouter</a>
+        </button>
+    </div>
+
+
+        {# <a href="{{ path('app_offre_new') }}">new</a> #}
+        <br><br>
+      
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Societe</th>
+                <th>Adresse_societe</th>
+                <th>Email</th>
+                <th>Type offre</th>
+                <th>Qualification</th>
+                <th>Comptence</th>
+                <th>Deadline</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ offre.titre }}</td>
+                <td>{{ offre.description }}</td>
+                <td>{{ offre.societe }}</td>
+                <td>{{ offre.adresseSociete }}</td>
+                <td>{{ offre.email }}</td>
+                <td>{{ offre.typeOffre }}</td>
+                <td>{{ offre.qualification }}</td>
+                <td>{{ offre.comptence }}</td>
+                <td>{{ offre.deadline ? offre.deadline|date('Y-m-d') : '' }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-info">
+                    <a href="{{ path('app_offre_show', {'id': offre.id}) }}" style="color: info; ">afficher</a>
+                </button>
+                <button type="button" class="btn btn-outline-success">
+                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">modifier</a>
+                </button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

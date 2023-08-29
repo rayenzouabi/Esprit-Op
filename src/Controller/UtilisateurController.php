@@ -67,17 +67,19 @@ Filesystem $filesystem,MailerInterface $mailerInterface,
             return $this->redirectToRoute('loginspace');
         }*/
      
-           
+
         
         return $this->render('utilisateur/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
         ]);
+
     }
     
     #[Route('/profile', name: 'profile_page' ,methods: ['GET', 'POST'])]
     public function profile(Request $request,UtilisateurRepository $utilisateurRepository ,UserPasswordHasherInterface $userPasswordHasher,UserInterface $userInterface): Response
     {
+        
         try{
             $message='';
         $user = $this->getUser();
@@ -260,5 +262,12 @@ public function searchUsers(Request $request, UtilisateurRepository $userReposit
     $retour = json_encode($jsonContent);
 
     return new Response($retour);
+}
+
+
+#[Route('/accueil', name: 'accueil', methods: ['GET'])]
+public function acceuil()
+{
+    return $this->render('acceuil.html.twig');
 }
 }

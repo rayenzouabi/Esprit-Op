@@ -1,11 +1,55 @@
 
 
 {% extends 'adminbase.html.twig' %}
-{% block title %}Clients{% endblock %}
+
+{% block title %}client {% endblock %}
+
  {% block content %}
+
+
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Accueil</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="adminbase.html.twig" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">tableau de board</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu"> Tables</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{path('app_offre_index')}}" aria-expanded="false">
+            <span>
+              <i class="ti ti-article"></i>
+            </span>
+            <span class="hide-menu">Offres</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+            <span>
+              <i class="ti ti-alert-circle"></i>
+            </span>
+            <span class="hide-menu">Events</span>
+          </a>
+        </li>
+
+ {% endblock %}
+
+
+
+ {% block body %}
 <body>
  
             <div class="main-content-inner">
+                
                 <div class="row">
                     <!-- Dark table start -->
                     <div class="col-12 mt-5">
@@ -32,7 +76,7 @@
                                                 <th>cin</th>
                                                <!--   <th>Date de naissance</th>-->
                                             <th>Age</th>
-                                                <th>Numéro de permis</th>
+                                               
                                                 <th >
                                                 Ville
                                                 </th>
@@ -54,9 +98,8 @@
                    <td>{{ user.cin }}</td>
                   <!--   <td>{{ user.getDateNaiss()|date('Y-m-d')  }}</td>-->
                 <td>{{ user.age }}</td>
-                   <td>{{ user.getNumpermis() }}</td>
                    <td>{{ user.ville }}</td>
-                   <td>{{ user.getNumtel()}}</td>
+                   <td>{{ user.etat}}</td>
                    <td>{{ user.login }}</td>
                    <td>{{ user.etat }}</td>
                    <td><select name="etat" id="Etat">            
