@@ -22,8 +22,8 @@ security:
             lazy: true
             provider: app_admin_provider
             form_login:
-                login_path: login_admin
-                check_path: login_admin
+                login_path: loginspace
+                check_path: loginspace
                 default_target_path: liste_admin
                 enable_csrf: true
             remember_me:

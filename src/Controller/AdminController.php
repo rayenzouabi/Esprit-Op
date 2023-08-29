@@ -10,6 +10,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Request;
 
+
+
 #[Route('/admin')]
 class AdminController extends AbstractController
 {
@@ -20,19 +22,7 @@ class AdminController extends AbstractController
         'users' => $utilisateurRepository->findByRoleId($roleRepository->find(2)),
     ]);
 }
-    #[Route('/login', name: 'login_admin')]
-    function login(AuthenticationUtils $authenticationUtils): Response
-        {
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-    
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('admin/login.html.twig', [
-            'last_username' => $lastUsername,
-            'error' => $error,
-        ]);
-    }
+  
     #[Route('/listeUser', name: 'liste_admin')]
     public function liste(UtilisateurRepository $utilisateurRepository, RoleRepository $roleRepository): Response
     {       
@@ -40,6 +30,21 @@ class AdminController extends AbstractController
         'users' => $utilisateurRepository->findByRoleId($roleRepository->find(2))
     ]);
 }
+
+#[Route('/login', name: 'login_admin')]
+function login(AuthenticationUtils $authenticationUtils): Response
+    {
+    // get the login error if there is one
+    $error = $authenticationUtils->getLastAuthenticationError();
+
+    // last username entered by the user
+    $lastUsername = $authenticationUtils->getLastUsername();
+    return $this->render('utilisateur/login.html.twig', [
+        'last_username' => $lastUsername,
+        'error' => $error,
+    ]);
+}
+
 #[Route('/EnableOrdisable/{id}', name: 'EnableOrdisable')]
 public function enableOrdisable(UtilisateurRepository $utilisateurRepository,$id,Request $request): Response
 {
