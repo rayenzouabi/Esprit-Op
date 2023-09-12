@@ -3,7 +3,7 @@
 {% block title %}Offre {% endblock %}
 
     {% block content %}
-        <ul id="sidebarnav">
+           <ul id="sidebarnav">
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Accueil</span>
@@ -97,20 +97,21 @@
       <div class="row">
           <div class="col-md-6">
               <button type="button" class="btn btn-outline-success">
-                  <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">Edit</a>
-              </button>
+                  <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">Modifier</a>
+              </button>  
+              {{ include('offre/_delete_form.html.twig') }}
           </div>
           <div class="col-md-6 text-md-right">
-              <a href="{{ path('app_offre_index') }}" class="btn btn-link">Back to List</a>
+              <a href="{{ path('app_offre_index') }}" class="btn btn-link">Retour</a>
           </div>
       </div>
+      </div>
+      {# <hr class="my-4">
 
-      <hr class="my-4">
-
-      <div class="row">
+     <div class="row">
           <div class="col-md-12">
             {{ include('offre/_delete_form.html.twig') }}
-          </div>
-      </div>
-  </div>
+          </div> 
+      </div> 
+  </div>#}
 {% endblock %}

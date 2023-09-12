@@ -1,9 +1,9 @@
 {% extends 'adminbase.html.twig' %}
 
-{% block title %}edit Offre {% endblock %}
+{% block title %} edit Offre {% endblock %}
 
     {% block content %}
-        <ul id="sidebarnav">
+          <ul id="sidebarnav">
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Accueil</span>
@@ -41,11 +41,33 @@
 
 
 {% block body %}
-    <h1>Edit Offre</h1>
-
+    <h1 style="margin-left: 650px; margin-bottom: 10px;"> Modifer l'offre </h1>
+{#
     {{ include('offre/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_offre_index') }}">back to list</a>
+    <a href="{{ path('app_offre_index') }}">Retour</a>
 
-    {{ include('offre/_delete_form.html.twig') }}
+    {{ include('offre/_delete_form.html.twig') }} 
+    #}
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              {{ include('offre/_form.html.twig', {'button_label': 'Modifier'}) }}
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12">
+              <a href="{{ path('app_offre_index') }}">Retour</a>
+          </div>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="row">
+          <div class="col-md-12">
+              {{ include('offre/_delete_form.html.twig') }}
+          </div>
+      </div>
+  </div>
 {% endblock %}

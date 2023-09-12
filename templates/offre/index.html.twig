@@ -50,7 +50,7 @@
         <div class="form-container">
   
         <button type="button" class="btn btn-outline-primary">
-            <a href="{{ path('app_offre_new') }}" style="color: primary;">ajouter</a>
+            <a href="{{ path('app_offre_new') }}" style="color: primary;">Ajouter une offre </a>
         </button>
     </div>
 
@@ -86,13 +86,18 @@
                 <td>{{ offre.comptence }}</td>
                 <td>{{ offre.deadline ? offre.deadline|date('Y-m-d') : '' }}</td>
                 <td>
-                  <button type="button" class="btn btn-outline-info">
-                    <a href="{{ path('app_offre_show', {'id': offre.id}) }}" style="color: info; ">afficher</a>
+                 
+                    {{ include('offre/_delete_form.html.twig') }}
+                
+                <button type="button" class="btn btn-outline-success">
+                   <a href="{{ path('app_offre_show', {'id': offre.id}) }}" style="color: info; ">Afficher</a>
                 </button>
                 <button type="button" class="btn btn-outline-success">
-                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">modifier</a>
+                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">Modifier</a>
                 </button>
-                </td>
+                 
+             
+              </td>
             </tr>
         {% else %}
             <tr>

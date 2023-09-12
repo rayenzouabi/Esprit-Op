@@ -1,5 +1,8 @@
- <head>   <title>Signup</title>
+
+
+<head>   <title>Signup</title>
 	<meta charset="UTF-8">
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico')}}"/>
@@ -24,13 +27,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/logo.css')}}">
 <!--===============================================================================================-->
+
 </head>
 
-<body style="background-color: #666666;">
+<body style="background-color:#b32222;">
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
                 {{ form_start(form,{'attr' : {'class' : 'login100-form','novalidate' : 'novalidate'}}) }}
 					<span class="login100-form-title p-b-43">
 						Inscription
@@ -68,7 +71,7 @@
 					<div class='text-danger'>{{ form_errors(form.login) }}
 					{{message}}</div>
 
-<br>
+						<br>
                     <div class="wrap-input100 validate-input">
 						{{ form_widget(form.mdp,{'attr':{class:'input100'}}) }}
 						
@@ -213,7 +216,6 @@
                     {{ form_end(form) }}
                 
 
-				<div class="login100-more" style="background-image: url('images/bg-01.jpg');">
 <!--<div class ="logobody">
 				<div class="levitate-body">
   <div class="levitate">
@@ -224,7 +226,7 @@
 </div>
 </div>-->
 
-				</div>
+				
 			</div>
 		</div>
 	</div>

@@ -63,7 +63,7 @@
 
               <li><a href="{{path('front_index')}}" class="nav-link active">Les Offres</a></li>
               <li><a href="{{path('app_events_index')}}">Events</a></li>
-              <li><a href="contact.html">Contact</a></li>
+          
               <li class="d-lg-none"><a href="{{path('profile_page')}}">Mon profil</a></li>
               <li class="d-lg-none"><a href="login.html">Se deconnecter</a></li>
             </ul>
@@ -132,7 +132,7 @@
                 <td>{{ offre.comptence }}</td>
                 <td>{{ offre.deadline ? offre.deadline|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('postuler', {'id': offre.id}) }}">postuler</a>
+                   <a >postuler</a> 
                    
                 </td>
                 <td>
@@ -159,9 +159,7 @@
 </div>
 </div>
 
-<a href="#next" class="scroll-button smoothscroll">
-<span class=" icon-keyboard_arrow_down"></span>
-</a>
+
 
 </section>
 
