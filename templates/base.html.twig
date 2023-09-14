@@ -65,9 +65,9 @@
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
               <li><a href="{{ path('profile_page') }}" class="nav-link active">Profile</a></li>
-              <li><a href="about.html" class="nav-link active">Offres</a></li>
+              <li><a href="{{path('front_index')}}" class="nav-link active">Offres</a></li>
               <li class="has-children" class="nav-link active">
-                <a href="job-listings.html" class="nav-link active">Evenements</a>
+                <a href="{{path('app_events_index')}}" class="nav-link active">Evenements</a>
                 <ul class="dropdown">
                   <li><a href="job-single.html">Job Single</a></li>
                   <li><a href="post-job.html">Post a Job</a></li>

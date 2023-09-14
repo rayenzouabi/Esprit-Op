@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events{% endblock %}
+
+{% block content1 %}
+
+ <body className='snippet-body'>      
+
+    <!-- HOME -->
+   <section class="home-section section-hero overlay bg-image" style="background-image: url('images/hero_1.jpg'); height: 1200px; padding-top: 100px; padding-bottom: 100px;" id="home-section">
+
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+    <h1>Liste des Offres </h1>
+    <br>
+        <br><br>
+        <br>
+        
+
+   
+        <br><br>
+      
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Societe</th>
+                <th>Adresse_societe</th>
+                <th>Email</th>
+                <th>Type </th>
+                <th>Qualification</th>
+                <th>Comptence</th>
+                <th>Deadline</th>
+                <th>actions</th>
+
+             
+            </tr>
+        </thead>
+        <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ offre.titre }}</td>
+                <td>{{ offre.description }}</td>
+                <td>{{ offre.societe }}</td>
+                <td>{{ offre.adresseSociete }}</td>
+                <td>{{ offre.email }}</td>
+                <td>{{ offre.typeOffre }}</td>
+                <td>{{ offre.qualification }}</td>
+                <td>{{ offre.comptence }}</td>
+                <td>{{ offre.deadline ? offre.deadline|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('postuler', {'id': offre.id}) }}">postuler</a>
+                   
+                </td>
+                <td>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+  </body>
+
+
+{% endblock %}

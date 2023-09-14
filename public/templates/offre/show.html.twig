@@ -1,0 +1,117 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Offre {% endblock %}
+
+    {% block content %}
+           <ul id="sidebarnav">
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Accueil</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('accueil')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-layout-dashboard"></i>
+              </span>
+              <span class="hide-menu">Accueil</span>
+            </a>
+          </li>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu"> Tables</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_offre_index')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-article"></i>
+              </span>
+              <span class="hide-menu">Offres</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_events_dash')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-alert-circle"></i>
+              </span>
+              <span class="hide-menu">Events</span>
+            </a>
+          </li>
+        {% endblock %}
+
+
+
+{% block body %}
+    <h1 style="margin-bottom: 15px; margin-left: 400px;">Offre</h1>
+
+    <table class="table" style="margin-top: 20px;">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offre.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ offre.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offre.description }}</td>
+            </tr>
+            <tr>
+                <th>Societe</th>
+                <td>{{ offre.societe }}</td>
+            </tr>
+            <tr>
+                <th>Adresse_societe</th>
+                <td>{{ offre.adresseSociete }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ offre.email }}</td>
+            </tr>
+            <tr>
+                <th>Type_offre</th>
+                <td>{{ offre.typeOffre }}</td>
+            </tr>
+            <tr>
+                <th>Qualification</th>
+                <td>{{ offre.qualification }}</td>
+            </tr>
+            <tr>
+                <th>Comptence</th>
+                <td>{{ offre.comptence }}</td>
+            </tr>
+            <tr>
+                <th>Deadline</th>
+                <td>{{ offre.deadline ? offre.deadline|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <div class="container mt-4" >
+      <div class="row">
+          <div class="col-md-6">
+              <button type="button" class="btn btn-outline-success">
+                  <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">Modifier</a>
+              </button>  
+              {{ include('offre/_delete_form.html.twig') }}
+          </div>
+          <div class="col-md-6 text-md-right">
+              <a href="{{ path('app_offre_index') }}" class="btn btn-link">Retour</a>
+          </div>
+      </div>
+      </div>
+      {# <hr class="my-4">
+
+     <div class="row">
+          <div class="col-md-12">
+            {{ include('offre/_delete_form.html.twig') }}
+          </div> 
+      </div> 
+  </div>#}
+{% endblock %}

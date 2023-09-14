@@ -1,0 +1,24 @@
+{# templates/candidature/candidature_form.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Apply for a Job{% endblock %}
+
+{% block body %}
+    <h1>Apply for a Job</h1>
+
+    {{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.CV_c, 'CV') }}
+        {{ form_widget(form.CV_c, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.CV_c) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.motivation_letter, 'Motivation Letter') }}
+        {{ form_widget(form.motivation_letter, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.motivation_letter) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Apply</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,101 @@
+
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}events {% endblock %}
+
+    {% block content %}
+        <ul id="sidebarnav">
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu">Accueil</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('accueil')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-layout-dashboard"></i>
+              </span>
+              <span class="hide-menu">accueil</span>
+            </a>
+          </li>
+          <li class="nav-small-cap">
+            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+            <span class="hide-menu"> Tables</span>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_offre_index')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-article"></i>
+              </span>
+              <span class="hide-menu">Offres</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{path('app_events_dash')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-alert-circle"></i>
+              </span>
+              <span class="hide-menu">Events</span>
+            </a>
+          </li>
+        {% endblock %}
+
+
+
+{% block body %}
+  <h1 style="margin-bottom: 15px; margin-left: 340px;">Liste des événements</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  {# <button type="button" class="btn btn-primary"><a href="{{ path('app_events_new') }}">ajouter</a></button> #}
+  <div class="form-container">
+  
+    <button type="button" class="btn btn-outline-primary">
+        <a href="{{ path('app_events_new') }}" style="color: primary;">ajouter</a>
+    </button>
+</div>
+
+<br>
+
+<br><br>
+
+
+  <table class="table ">
+      <thead class="thead-dark"> 
+          <tr>
+              <th>nom de l'evenement</th>
+              <th>Location</th>
+              <th>Lieninscrit</th>
+              <th>Date</th>
+              <th>actions</th>
+          </tr>
+      </thead>
+      <tbody>
+      {% for event in events %}
+          <tr>
+              <td>{{ event.titreE }}</td>
+              <td>{{ event.location }}</td>
+              <td>{{ event.lieninscrit }}</td>
+              <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
+              <td>
+                {{ include('events/_delete_form.html.twig') }} 
+                <button type="button" class="btn btn-outline-info">
+        <a href="{{ path('app_events_show', {'id': event.id}) }}" style="color: info; ">Afficher</a>
+    </button>
+    <button type="button" class="btn btn-outline-success">
+        <a href="{{ path('app_events_edit', {'id': event.id}) }}" style="color: green;">Modifier</a>
+    </button> 
+   
+                  {# <a href="{{ path('app_events_show', {'id': event.id}) }}">show</a> #}
+                  {# <a href="{{ path('app_events_edit', {'id': event.id}) }}">edit</a> #}
+              </td>
+          </tr>
+      {% else %}
+          <tr>
+              <td colspan="6">no records found</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+{% endblock %}

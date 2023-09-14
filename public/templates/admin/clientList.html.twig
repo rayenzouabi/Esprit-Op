@@ -1,0 +1,284 @@
+
+
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}client {% endblock %}
+
+ {% block content %}
+
+
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu">Accueil</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="adminbase.html.twig" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">tableau de board</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <span class="hide-menu"> Tables</span>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{path('app_offre_index')}}" aria-expanded="false">
+            <span>
+              <i class="ti ti-article"></i>
+            </span>
+            <span class="hide-menu">Offres</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+            <span>
+              <i class="ti ti-alert-circle"></i>
+            </span>
+            <span class="hide-menu">Events</span>
+          </a>
+        </li>
+
+ {% endblock %}
+
+
+
+ {% block body %}
+<body>
+ 
+            <div class="main-content-inner">
+                
+                <div class="row">
+                    <!-- Dark table start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Liste des clients</h4>
+                                <div class="col-md-6 col-sm-8 clearfix">
+                        
+                        <div class="search-box pull-left">
+                            <form action="#">
+                                <input type="text" name="searchInput" placeholder="chercher..." id="searchInput" >
+                                <i class="ti-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                                <div class="data-tables datatable-dark">
+                                    <table id="dataTable3" class="text-center">
+                                        <thead class="text-capitalize">
+                                            <tr>
+                                                <th >
+                                                Name
+                                                </th>
+                                                <th>Prenom</th>
+                                                <th>cin</th>
+                                               <!--   <th>Date de naissance</th>-->
+                                            <th>Age</th>
+                                               
+                                                <th >
+                                                Ville
+                                                </th>
+                                                <th>Numéro tel</th>
+                                                <th>Email</th>
+                                                <th>Etat</th>
+                                               
+                                                
+                                            </tr>
+                                        </thead>
+                                         
+                                           <tbody id='old_tab'>
+                                           
+               {% for user in users %}
+               <form action="{{ path('EnableOrdisable',{'id':user.id}) }}" method="post" class='login100-form'>
+            <tr>
+                <td>{{ user.nom }}</td>
+                 <td>{{ user.prenom }}</td>
+                   <td>{{ user.cin }}</td>
+                  <!--   <td>{{ user.getDateNaiss()|date('Y-m-d')  }}</td>-->
+                <td>{{ user.age }}</td>
+                   <td>{{ user.ville }}</td>
+                   <td>{{ user.etat}}</td>
+                   <td>{{ user.login }}</td>
+                   <td>{{ user.etat }}</td>
+                   <td><select name="etat" id="Etat">            
+  <option value="Activé">Activé</option>
+  <option value="Bloqué">Bloqué</option>
+</select></td>
+ <td>             	
+<button type="submit">modifier</button></td>
+
+                    <td>
+            <a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal-{{ user.id }}">
+                <i class="ti-trash"></i>
+            </a>
+            <!-- Delete Modal -->
+            <div class="modal fade" id="deleteModal-{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Warning-Alert!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p> Vous voulez vraiment supprimer l'utilisateur  {{ user.login }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                            <a href="{{ path('user_delete', {'id': user.id}) }}" type="button" class="btn btn-danger">Oui</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Delete Modal -->
+        </td>
+            </tr>
+            
+ </form>
+            {% endfor %}
+           
+        </tbody>
+        <tbody id ='new_tab'>
+        </tbody>
+        
+                                    </table>
+                                    <h4 style="text-align:center"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dark table end -->
+                </div>
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+      
+    <!-- offset area end -->
+
+</body>
+<!-- jquery latest version -->
+    <script src="{{asset('admin/js/vendor/jquery-2.2.4.min.js')}}"></script>
+  <script>
+$(document).ready(function() {
+    $('#searchInput').on('input', function() {
+        var searchTerm = $(this).val();
+       if (searchTerm.length === 0) {
+
+        $('#new_tab').empty();
+        $('#new_tab').hide().fadeOut('fast');
+        $('#old_tab').show().fadeIn('fast');
+
+    }
+                      
+                     
+        
+        else {
+            $.ajax({
+                url: "{{ path('search_users') }}",
+                data: {term: searchTerm},
+                type: 'GET',
+                success: function(users) {
+                     let data = JSON.parse(users);
+                     console.log(data)
+                    $('#old_tab').hide().fadeOut('fast');
+                    $('#new_tab').empty();
+                    $('#new_tab').show().fadeIn('fast');
+                        $('h4').empty();
+                      
+                        
+                        // Loop through the search results and create new rows in the table body
+                        $.each(data, function(index, user) {
+console.log(user)
+                            var row = $('<tr>');
+                            row.append($('<td>').text(user.nom));
+                            row.append($('<td>').text(user.prenom));
+                            row.append($('<td>').text(user.cin));
+                            row.append($('<td>').text(user.age));
+                            row.append($('<td>').text(user.numPermis));
+                            row.append($('<td>').text(user.ville));
+                            row.append($('<td>').text(user.numTel));
+                            row.append($('<td>').text(user.login));
+                            row.append($('<td>').text(user.etat));
+                            row.append($('<td>').html('<select name="etat" id="Etat"><option value="Activé">Activé</option><option value="Bloqué">Bloqué</option></select>'));
+                            row.append($('<td>').html('<button type="submit">modifier</button>').on('click', function() {
+        // Get the user ID
+        var userId = user.id;
+        var selectedOptionValue = row.find('select#Etat').val();
+        // Construct the form action URL with the user ID
+var formAction = '/EnableOrdisableInJs/' + userId + '/' + selectedOptionValue;        
+        // Create a form element dynamically
+        var form = $('<form>', {
+            'action': formAction,
+            'method': 'POST',
+            'class': 'login100-form'
+        })
+        form.appendTo('body').submit();
+                        })
+                        );                
+                            row.append($('<td>').html('<a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal-' + user.id + '"><i class="ti-trash"></i></a>'));
+                                       // Delete Modal
+  
+    // End Delete Modal
+                            $('#new_tab').append(row);
+                        })
+                }
+                })
+        }
+    });
+});
+
+</script>
+<!-- <script>
+    // Use vanilla JavaScript to select DOM elements
+    const searchInput = document.querySelector('#searchInput');
+    const tableBody = document.querySelector('tbody');
+
+    // Attach an event listener for input event on search input
+    searchInput.addEventListener('input', function() {
+        var searchTerm = this.value;
+        if (searchTerm.length >= 3) {
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/search-users?term=' + searchTerm, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Clear the table body
+                    tableBody.innerHTML = '';
+
+                    // Parse the JSON response
+                    var users = JSON.parse(xhr.responseText);
+
+                    // Loop through the search results and create new rows in the table body
+                    for (var i = 0; i < users.length; i++) {
+                        var user = users[i];
+                        var row = document.createElement('tr');
+                        row.innerHTML = '<td>' + user.nom + '</td>' +
+                                        '<td>' + user.prenom + '</td>' +
+                                        '<td>' + user.cin + '</td>' +
+                                        '<td>' + user.age + '</td>' +
+                                        '<td>' + user.num_permis + '</td>' +
+                                        '<td>' + user.ville + '</td>' +
+                                        '<td>' + user.num_tel + '</td>' +
+                                        '<td>' + user.login + '</td>' +
+                                        '<td>' + user.etat + '</td>' +
+                                        '<td><select name="etat" id="Etat">' +
+                                            '<option value="Activé">Activé</option>' +
+                                            '<option value="Bloqué">Bloqué</option>' +
+                                        '</select></td>' +
+                                        '<td><button type="submit">modifier</button></td>' +
+                                        '<td><a href="#" class="text-danger" data-toggle="modal" data-target="#deleteModal-' + user.id + '"><i class="ti-trash"></i></a></td>';
+                        tableBody.appendChild(row);
+                    }
+                }
+            };
+            xhr.send();
+        }
+    });
+</script>-->
+{% endblock %}
+
+

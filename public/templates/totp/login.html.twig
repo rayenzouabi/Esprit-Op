@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Enter TOTP Code</h1>
+
+    {% if error is defined %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ path('totp_check') }}">
+        {{ csrf_token('authenticate') }}
+        <label for="totp_code">TOTP Code:</label>
+        <input type="text" id="totp_code" name="_totp_code" required autofocus />
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

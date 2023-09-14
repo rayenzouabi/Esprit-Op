@@ -1,0 +1,20 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+logout:
+    path: /logout
+    methods: GET
+logout_admin:
+    path: /admin/logout
+    methods: GET
+enable_or_disable_user:
+    path: /EnableOrdisableInJs/{id}/{etat}
+    methods: [POST]
+    controller: App\Controller\adminController::enableOrdisableInJs
+
+ #candidature_form:
+    #path: /candidature/form
+  #  methods: GET
+  #  controller: App\Controller\CondidatureController::form
+  #} 
+

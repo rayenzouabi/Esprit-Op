@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(35, 34, 34);
+  }
+  .child {
+    background: rgb(221, 194, 145);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+  }
+  img {
+    height: 250px;
+    width: 250px;
+    position: fixed;
+    top: 5%;
+    left: 42%;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50%;
+  }

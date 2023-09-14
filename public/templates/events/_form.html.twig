@@ -1,0 +1,89 @@
+{# {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-container input[type="datetime-local"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+        .form-container button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create Event</h2>
+        
+        {{ form_start(form) }}
+        
+        {{ form_label(form.titreE) }}
+        {{ form_widget(form.titreE) }}
+        {{ form_errors(form.titreE) }}
+
+        {{ form_label(form.location) }}
+        {{ form_widget(form.location) }}
+        {{ form_errors(form.location) }}
+
+        {{ form_label(form.lieninscrit) }}
+        {{ form_widget(form.lieninscrit) }}
+        {{ form_errors(form.lieninscrit) }}
+
+        {{ form_label(form.date) }}
+        {{ form_widget(form.date) }}
+        {{ form_errors(form.date) }}
+        <br>
+        <br>
+
+        <button type="submit" class="btn">{{ button_label|default('Save') }}</button>
+     
+        {{ form_end(form) }}
+    </div>
+</body>
+</html>

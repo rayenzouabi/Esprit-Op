@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offre {% endblock %}
+
+    {% block content1 %}
+    
+
+    <h1 style="margin-bottom: 15px; margin-left: 340px;">Liste des Offres </h1>
+    <br>
+        <br><br>
+        <br>
+
+
+        <div class="form-container">
+  
+        <button type="button" class="btn btn-outline-primary">
+            <a href="{{ path('app_offre_new') }}" style="color: primary;">ajouter</a>
+        </button>
+    </div>
+
+
+        {# <a href="{{ path('app_offre_new') }}">new</a> #}
+        <br><br>
+      
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Societe</th>
+                <th>Adresse_societe</th>
+                <th>Email</th>
+                <th>Type offre</th>
+                <th>Qualification</th>
+                <th>Comptence</th>
+                <th>Deadline</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ offre.titre }}</td>
+                <td>{{ offre.description }}</td>
+                <td>{{ offre.societe }}</td>
+                <td>{{ offre.adresseSociete }}</td>
+                <td>{{ offre.email }}</td>
+                <td>{{ offre.typeOffre }}</td>
+                <td>{{ offre.qualification }}</td>
+                <td>{{ offre.comptence }}</td>
+                <td>{{ offre.deadline ? offre.deadline|date('Y-m-d') : '' }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-info">
+                    <a href="{{ path('app_offre_show', {'id': offre.id}) }}" style="color: info; ">afficher</a>
+                </button>
+                <button type="button" class="btn btn-outline-success">
+                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}" style="color: green;">modifier</a>
+                </button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

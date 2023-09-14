@@ -1,0 +1,61 @@
+body {
+    background: rgb(48, 37, 6)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #4d410f
+}
+
+.profile-button {
+    background: rgb(1, 3, 15);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #4d410f
+}
+
+.profile-button:focus {
+    background: #2B2E4A;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #2B2E4A;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

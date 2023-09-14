@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block content1 %}
+
+ <!-- NAVBAR --> 
+    <header class="site-navbar mt-3">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="site-logo col-6"><a href="index.html">Esprit-Op</a></div>
+
+          <nav class="mx-auto site-navigation">
+            <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
+
+              <li><a href="{{path('accueil')}}" class="nav-link active">Accueil</a></li>
+              <li><a href="about.html">A propos</a></li>
+
+
+              <li><a href="{{path('front_index')}}">Les Offres</a></li>
+              <li><a href="{{path('app_events_index')}}">Events</a></li>
+ <a href="{{ path('app_avis') }}" class="nav-item nav-link">Avis</a>
+
+              <li><a href="contact.html">Contact</a></li>
+              <li class="d-lg-none"><a href="profilsymfony server:start 
+              .html.twig">Mon profil</a></li>
+              <li class="d-lg-none"><a href="login.html">Se deconnecter</a></li>
+
+           
+          </nav> 
+
+          <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
+            <div class="ml-auto">
+
+              <a href="{{path('profile_page')}}" class="btn btn-primary border-width-2 d-none d-lg-inline-block"></span>Mon profil</a>
+              <a href="{{path('logout')}}" class="btn btn-primary border-width-2 d-none d-lg-inline-block"><span class="mr-2 icon-lock_outline"></span>Se deconnecter</a>
+
+             
+            </div>
+            <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span class="icon-menu h3 m-0 p-0 mt-2"></span></a>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+<div class="col-12">
+  <div class="row">
+<div class="col-3 mt-5 mr-5 pl-5">
+  <img src="{{ asset('assets/images/Comment-256.png') }}" alt="Side Image" class="img-fluid">
+</div>
+
+    <div class="col-6 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">Modifier Avis</h4>
+{{ form_start(f, {'attr': {'novalidate': 'novalidate'}} )}}
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Commentaire</label>
+            {{ form_widget(f.commentaire,{'attr':{'class':'form-control'  }}) }}
+          </div>
+
+          <div class="form-control-feedback" style="color: red;" >
+            {{ form_errors(f.commentaire) }} 
+          </div>
+
+         <div class="form-group">
+    <label for="etoile">Note </label>
+    <input type="hidden" name="etoile" id="etoile" value="">
+    <div id="etoile_value"></div>
+    <div class="rating" id="rating_input">
+
+                                            <h4 class="text-center mt-2 mb-4">
+                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
+                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
+                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
+                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
+                                                <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
+                                            </h4>
+                                        </div>
+                                        
+{{ form_widget(f.etoile, {'attr': {'required': 'required'}}) }}
+
+    <div class="form-control-feedback" style="color: red;">
+        {{ form_errors(f.etoile) }}
+    </div>
+</div>          <div class="col-auto my-1">
+            <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ form_end(f) }}
+<!-- basic form end -->
+
+
+
+   <!-- Footer Start -->
+<div class="container-fluid bg-dark py-4 px-sm-3 px-md-5 custom-class" style="height: 1px;">
+        <p class="mb-2 text-center text-body">&copy; <a href="#">SWIFT RIDE</a>. All Rights Reserved.</p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+ <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    
+
+    
+    <style>
+.classe-radio {
+display: inline-block;
+position: relative;
+padding-left: 25px;
+margin-right: 10px;
+cursor: pointer;
+font-size: 16px;
+line-height: 20px;
+}
+
+</style>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   <style>
+       .star-light
+       {
+           color:#e9ecef;
+       }
+       .submit_star {
+           cursor: pointer;
+       }
+        .star-golden {
+        color:#ffa30f;
+       }
+   </style>
+
+ 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script defer>
+  $(document).ready(function(){
+    let rating_data = 0;
+
+    function reset_background() {
+        for(let count = 1; count <= 5; count++) {
+            $('#submit_star_'+count).addClass('star-light');
+            $('#submit_star_'+count).removeClass('star-golden');
+        }
+    }
+
+$(document).on('mouseenter mouseleave', '.submit_star', function(){
+    rating_data = $(this).data('rating');
+    reset_background();
+    for(let count = 1; count <= rating_data; count++) {
+        $('#submit_star_'+count).removeClass('star-light');
+        $('#submit_star_'+count).addClass('star-golden');
+    }
+    $('input[name="etoile"]').val(rating_data); // update the hidden input field
+});
+});
+
+</script>
+    
+{% endblock %}
